@@ -1,0 +1,19 @@
+element.style {
+}
+
+.goods-img-min img {
+	max-width: 100%;
+}
+
+.goods-img-min div.active-img {
+	background: #ff5912;
+}
+
+.goods-img-min div {
+	width: 94px;
+	height: 68px;
+	overflow: hidden;
+	background: #f4f6f8;
+	display: inline-block;
+	line-height: 100px;
+}
