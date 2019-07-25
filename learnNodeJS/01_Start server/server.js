@@ -24,7 +24,7 @@ const http = require('http');
 		body {
 			margin: 0;
 			padding: 0;
-			text-align: center;
+			text-align: center
 		}
 		h1 {
 			background-color: #43853d;
