@@ -1,0 +1,17 @@
+{
+  "name": "psql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oleg",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node": "^12.7.0",
+    "pg": "^7.12.0",
+    "server.js": "^1.0.0"
+  }
+}
