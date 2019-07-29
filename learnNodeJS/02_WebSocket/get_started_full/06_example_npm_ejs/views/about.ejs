@@ -1,0 +1,27 @@
+<!-- about.ejs  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title> NodeJS About</title>
+	<style>
+		body { background-color: #000000; }
+		.block { text-align: center; width: 70%; margin-left: 15% }
+		h1 {color: #bbbbbb; font-size: 3.5em;}
+		p {color: #dddddd; font-size: 1.2em}
+		a {color: #dddddd; font-size: 1.2em}
+	</style>
+</head>
+<body>
+	
+	<div class="block">
+		<h1>About Node.js</h1>
+		<p><%= aboutVer %></p>
+
+		<p>Node предназначен для создания масштабируемых сетевых приложений как среда выполнения JavaScript с асинхронным управлением событиями. В следующем примере «hello world» многие соединения могут обрабатываться одновременно. При каждом соединении вызывается обратный вызов, но если не нужно выполнять какую-либо работу, узел будет спать.
+		</p>
+		<p><a href="/">На главную</a></p>
+	</div>
+</body>
+</html>

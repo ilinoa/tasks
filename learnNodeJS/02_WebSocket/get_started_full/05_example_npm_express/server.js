@@ -13,9 +13,20 @@ var app = express();
 
 //app.get
 //app.post
+//app.delete
+//app.put
 
 app.get('/', function (require, respose) {
-	respose.send('This is home');
+	respose.send('Node.js® is a JavaScript runtime built on Chrome`s V8 JavaScript engine');
+});
+
+
+app.get('/docs', function (require, respose) {
+	respose.send('version - ' + require.params.id);
+});
+
+app.get('/docs/:ver', function (require, respose) {
+	respose.send('version - ' + require.params.ver);
 });
 
 app.listen(3000);
