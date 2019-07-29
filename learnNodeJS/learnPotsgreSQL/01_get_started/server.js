@@ -1,73 +1,12 @@
-
-var express = require('express');
-var pg = require("pg");
-var app = express();
-
-var connectionString = "postgres://ilinoa:1234@localhost:5432/postgres";
-
-app.get('/', function (req, res, next) {
-    pg.connect(connectionString,function(err,client,done) {
-
-
-       if(err){
-           console.log("not able to get connection "+ err);
-           res.status(400).send(err);
-       } 
-       client.query('SELECT * FROM student where id = $1', [1],function(err,result) {
-           done(); // closing the connection;
-           if(err){
-               console.log(err);
-               res.status(400).send(err);
-           }
-           res.status(200).send(result.rows);
-       });
-
-
-       
-    });
-});
-
-app.listen(3000, function () {
-    console.log('Server is running.. on Port 3000');
-});
-
-
-
-
-
-/*
-//https://node-postgres.com/features/connecting
-const { Pool, Client } = require('pg')
-const connectionString = 'postgres://ilinoa:1234@localhost:5430/postgres'
-const pool = new Pool({
-  connectionString: connectionString,
-})
-pool.query('SELECT * FROM student;', (err, res) => {
-  console.log(err, res)
-  pool.end()
-})
-const client = new Client({
-  connectionString: connectionString,
-})
-client.connect()
-client.query('SELECT * FROM student;', (err, res) => {
-  console.log(err, res)
-  client.end()
-})
-
-
-
-*/
-
-
-
 //http://www.javascriptpoint.com/nodejs-postgresql-tutorial-example/
-/*
+
 var express = require('express');
 var pg = require("pg");
 var app = express();
  
-var connectionString = "postgres://postgresql:1234@localhost:5432/postgres";
+var connectionString = "postgres://postgresql:admin@localhost:5432/postgresql";
+
+ 
 
 
 app.get('/', function (req, res, next) {
@@ -91,7 +30,7 @@ app.get('/', function (req, res, next) {
 app.listen(3000, function () {
     console.log('Server is running.. on Port 3000');
 });
-*/
+
 
 
 
