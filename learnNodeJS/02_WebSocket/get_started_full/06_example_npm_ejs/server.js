@@ -7,8 +7,8 @@ var express = require('express');
 
 var app = express();
 
-var test = 1000;
-
+var test = 'TEST1';
+app.use('/public', express.static('public'));
 //подключение движка ejs
 app.set('view engine', 'ejs');
 
