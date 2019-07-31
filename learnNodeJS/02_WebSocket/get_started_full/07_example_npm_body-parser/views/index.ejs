@@ -5,23 +5,36 @@
 	<title>Home</title>
 	<link rel="stylesheet" type="text/css" href="/public/css/Bootstrap v4.3.1.css">
 	<link rel="stylesheet" type="text/css" href="/public/css/style.css">
-</head>
-<body>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+  	<% include head.ejs %> 
 	<div class="block">
 		<p>Start</p>
-	<form method="post" action="/about">  
-		<div class="form-group col-md-4"> 
-		    <label for="">Email</label>
-		    <input type="email" class="form-control" id="">
-	  	</div>
-	  	<div class="form-group col-md-4">
-		    <label for="">Password</label>
-		    <input type="password" class="form-control" id="">
-		    <br>
-			<button  type="submit" class="btn btn-primary">Sign Up</button>
-	  	</div>
-	</form>
-</div>
-
+		<form method="post" action="/index">  
+			<div class="form-group col-md-4"> 
+			    <label for="testEmail">Email</label>
+			    <input type="email" name="email" class="form-control" id="testEmail">
+		  	</div>
+		  	<div class="form-group col-md-4">
+			    <label for="testPass">Password</label>
+			    <input type="password" name="pass" class="form-control" id="testPass">
+			    <br>
+				<button  type="submit" class=" col-md-4 btn btn-primary ">Sign Up</button>
+		  	</div>
+		</form>
+	</div>
+    <div id="root"></div>
+    <script type="text/babel">
+      ReactDOM.render(
+        <h1>ReactDOM</h1>,
+        document.getElementById('root')
+      );
+    </script>
 </body>
 </html>
+
+

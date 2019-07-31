@@ -30,8 +30,7 @@ var server = http.createServer(function (require, response) {
 	if(require.url == '/'){
 		response.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
 		var myReadShort = fs.createReadStream(__dirname + '/index.html', 'utf8');
-		myReadShort.pipe(response);
-		
+		myReadShort.pipe(response);		
 	}
 	else if (require.url == '/json') {
 	 	response.writeHead(200, {'Content-Type':'application/json; charset=utf-8'});
