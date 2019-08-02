@@ -6,10 +6,15 @@
 	<link rel="stylesheet" type="text/css" href="/public/css/Bootstrap v4.3.1.css">
 	<link rel="stylesheet" type="text/css" href="/public/css/style.css">
 </head>
-<body  class="blue">
+<body  class="success">
 	<% include head.ejs %>
 	<div class="block">
 		<p>Accept.</p>
 	</div>
+	<p>
+		<b>Email: </b> <%= data.email %><br>
+		<b>Pass: </b> <%= data.pass %><br>
+		<b>isCheck: </b> <%= data.check %>
+	</p>
 </body>
 </html>
