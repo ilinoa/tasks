@@ -33,15 +33,16 @@
 				<form id="messForm">
 					<textarea name="message" id="message" class="form-control" placeholder="Enter message"></textarea>
 					<br>
-					<input type="button" value="submit" class="btn btn-dark">
+					<input type="submit" value="submit" class="btn btn-dark">
 				</form>
 			</div> 
-			<div class="col-md-6"> 
+			<div class="col-md-6"> <br>
+				<div id="time"></div>
 				<div id="all_mess"></div>
 			</div>
 		</div>
 	</div>
-
+	
 	<script src="/public/js/index.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
