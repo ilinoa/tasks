@@ -5,12 +5,7 @@ $(function(){
 	var $time = $('time')
 	var $input_mess = $('#message') 	// поле ввода
 	var $all_mess = $('#all_mess')		// поле вывода
-	
-	now = new Date();
-	setTimeout(function(){
-		 window.location.reload(1);
-   	
-	}, 60000);
+
 	
 	/*
 	*	отслеживаем в форме событие submit
@@ -20,7 +15,7 @@ $(function(){
 	*/
 	$form.submit(function(event){
 		event.preventDefault()
-		console.log(now)
+		time = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1")
 		socket.emit('send mess',  {mess:$input_mess.val()})
 		$input_mess.val('')
 	})
@@ -31,6 +26,6 @@ $(function(){
 	* 	
 	*/
 	socket.on('add mess', function(data){
-		$all_mess.append(now+'<div>' + data.mess + '</div>')
+		$all_mess.append('<p class="small"> '+time+'</><div>' + data.mess + '</div>')
 	})
 })
