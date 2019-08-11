@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body><br><br>
+	<p style="text-align: center;">отслеживание символов. '13' - Enter</p>
+	<p style="text-align: center;">для продолжения нажмите Enter</p>
+	<script>
+
+	  	function getChar(event) {
+			if (event.which == null) { 							// IE
+      			if (event.keyCode < 32) return null 			// спец. символ
+      			return String.fromCharCode(event.keyCode)
+    		}
+    		if (event.which != 0 && event.charCode != 0) { 		// все кроме IE
+      			if (event.which < 32) return null 				// спец. символ
+      			return String.fromCharCode(event.which) 		// остальные
+    		}
+    		return null 										// спец. символ
+    	}
+	  	function runOnKeys(fn = () => alert('Привет!'), ...keys) {
+	    	let cache = {}, counter = 0
+		    keys.forEach((key) => {
+		    	cache[key.toUpperCase()] = false
+	    	})
+	    	document.body.addEventListener('keypress', (event) => {
+	    		let s = getChar(event)
+	      		if (!cache[s]) {
+	        		cache[s] = true
+	        		counter++
+	      		}
+	      		if (counter >= keys.length) {
+	        		fn()
+	        		for (let key in cache) {
+	          			cache[key] = false
+	        		}
+	        		counter = 0
+	      		}
+	    	})
+	   	}
+  		runOnKeys(undefined, '13')
+	</script>
+</body>
+</html>
+
+
+
+
+

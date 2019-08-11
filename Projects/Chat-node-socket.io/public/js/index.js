@@ -2,7 +2,8 @@
 $(function(){
 	var socket = io.connect() 			// подключаем socket -> connection
 	var $form = $('#messForm') 			// обращаемся к объекту по Id - messForm
-	var $time = $('time')
+	var $time = $('#time')
+	var $name = $('#name')
 	var $input_mess = $('#message') 	// поле ввода
 	var $all_mess = $('#all_mess')		// поле вывода
 
@@ -16,16 +17,15 @@ $(function(){
 	$form.submit(function(event){
 		event.preventDefault()
 		time = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1")
-		socket.emit('send mess',  {mess:$input_mess.val()})
+		socket.emit('send mess',  {mess:$input_mess.val(), name:$name.val()})
 		$input_mess.val('')
 	})
 
 	/*
 	*	когда вызовется 'add mess' -  обратиться к функции emit()
 	*  	append() - встраивает блок внутрь all_mess
-	* 	
 	*/
 	socket.on('add mess', function(data){
-		$all_mess.append('<p class="small"> '+time+'</><div>' + data.mess + '</div>')
+		$all_mess.append('<div> <k class="small">'+ time +' </k><b> ' + data.name + '</b>: ' + data.mess + '</div><br>')
 	})
 })

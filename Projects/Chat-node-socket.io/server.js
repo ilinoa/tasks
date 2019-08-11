@@ -44,7 +44,8 @@ io.sockets.on('connection', function(socket) {
 	*  	'add mess' - передаст mess со значением data  
 	*/
 	socket.on('send mess', function(data){
-		io.sockets.emit('add mess', {mess: data.mess})
+		console.log({name: data.name, mess: data.mess})
+		io.sockets.emit('add mess', {mess: data.mess, name: data.name})
 	})
 
 

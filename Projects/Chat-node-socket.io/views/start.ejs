@@ -22,22 +22,24 @@
  	<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
 	  	<h5 class="my-0 mr-md-auto font-weight-normal">Chat For Work</h5>
 		<br>
-		<p class="col-md-6 lead"> Enter your name to start</p><br>
 		<a class="btn btn-outline-dark" href="#">Sign up</a>	
 	</div>
 	<div class="container">
 		<div class="py-5 text-center">			
-		</div>
+	</div>
 		<div class="row">
 			<div class="col-md-6 mb-3"> 
 				<form id="messForm">
+					<p class="col-md-6 lead"> Enter your name to start</p><br>
+					<input type="text" name="name" id="name" class="form-control" placeholder="Enter your name">
+					<br>
 					<textarea name="message" id="message" class="form-control" placeholder="Enter message"></textarea>
 					<br>
 					<input type="submit" value="submit" class="btn btn-dark">
 				</form>
 			</div> 
 			<div class="col-md-6"> <br>
-				<div id="time"></div>
+				
 				<div id="all_mess"></div>
 			</div>
 		</div>
