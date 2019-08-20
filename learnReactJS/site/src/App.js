@@ -25,13 +25,6 @@ class App extends React.Component {
     return (
       
     <div className="App">
-       <Navbar>
-    <Navbar.Header>
-      <Navbar.Brand>
-        React Simple Weather App
-      </Navbar.Brand>
-    </Navbar.Header>
-  </Navbar>
 
       {
         PLACES.map((place, index) => ( 

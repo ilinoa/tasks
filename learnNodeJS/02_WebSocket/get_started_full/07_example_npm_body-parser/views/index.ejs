@@ -5,10 +5,6 @@
 	<title>Home</title>
 	<link rel="stylesheet" type="text/css" href="/public/css/Bootstrap v4.3.1.css">
 	<link rel="stylesheet" type="text/css" href="/public/css/style.css">
-    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    <!-- Don't use this in production: -->
-    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
   	<% include head.ejs %> 
@@ -31,13 +27,23 @@
 		  	</div>
 		</form>
 	</div>
-    <div id="root"></div>
-    <script type="text/babel">
-      ReactDOM.render(
-        <h1>ReactDOM</h1>,
-        document.getElementById('root')
-      );
-    </script>
+	<div id="root"></div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$.ajax({
+			url: 'https://api.vk.com/method/'+
+				'friends.search?count=60'+
+				'&fields=photo_100'+
+				'&access_token='+
+				'&v=5.52',
+			method: 'GET',
+			dataType: 'JSONP',
+			success: function(data){
+				console.log(data )
+			}
+		})
+	</script>
 </body>
 </html>
 
