@@ -31,11 +31,16 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script>
+
+		//https://oauth.vk.com/authorize?client_id=7104314&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.52
+
+		const API_KEY = 'fd7cebe7baeebb86f39ee0db5f828c526503548f5adc57cb6397d51a0b9c5a3fa94521168613119404eb3'
+
 		$.ajax({
 			url: 'https://api.vk.com/method/'+
 				'friends.search?count=60'+
 				'&fields=photo_100'+
-				'&access_token='+
+				`&access_token=${API_KEY}`+
 				'&v=5.52',
 			method: 'GET',
 			dataType: 'JSONP',
