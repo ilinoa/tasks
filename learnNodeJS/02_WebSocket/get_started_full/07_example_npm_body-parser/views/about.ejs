@@ -11,5 +11,26 @@
 	<div class="block">
 		<p>Some about...</p>
 	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+
+		var myURL = location.href
+		var Hash = myURL.substring(myURL.indexOf('#')+1)
+		params = new URLSearchParams(Hash)
+		const API_KEY = params.get('access_token')
+		$.ajax({
+			url: 'https://api.vk.com/method/'+
+				'friends.search?count=60'+
+				'&fields=photo_100'+
+				`&access_token=${API_KEY}`+
+				'&v=5.52',
+			method: 'GET',
+			dataType: 'JSONP',
+			success: function(data){
+				console.log(data )
+			}
+		})
+	</script>
 </body>
 </html>
