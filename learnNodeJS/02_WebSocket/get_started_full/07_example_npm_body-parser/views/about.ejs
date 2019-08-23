@@ -7,30 +7,55 @@
 	<link rel="stylesheet" type="text/css" href="/public/css/style.css">
 </head>
 <body>
+	
 	<% include head.ejs %>
 	<div class="block">
 		<p>Some about...</p>
 	</div>
 
+	
+	<button>Показать друзей</button>
+	<ul></ul>
+
+
+
+
+
+
+
+
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script>
+		// получение токена
+		var URL = location.href								// считываем URL
+		var Hash = URL.substring(URL.indexOf('#')+1)		// hash : 
+		token = new URLSearchParams(Hash)									
+		const API_KEY = token.get('access_token')			// передаем токен
+		
+		
 
-		var myURL = location.href
-		var Hash = myURL.substring(myURL.indexOf('#')+1)
-		params = new URLSearchParams(Hash)
-		const API_KEY = params.get('access_token')
-		$.ajax({
-			url: 'https://api.vk.com/method/'+
-				'friends.search?count=60'+
-				'&fields=photo_100'+
-				`&access_token=${API_KEY}`+
-				'&v=5.52',
-			method: 'GET',
-			dataType: 'JSONP',
-			success: function(data){
-				console.log(data )
-			}
-		})
+
+		function getUrl(method, params) {
+			params = params || {}							// params == params иначе {пустой Object}
+			params['access_token'] = API_KEY
+			return  'https://api.vk.com/method/'+method+'?' + $.param(params) + '&v=5.52'
+		}
+		
+		function sendRequest(method, params,func) {
+			// тестовый запрос - проверка токена
+			$.ajax({
+				url: getUrl(method, params),
+				method: 'GET',
+				dataType: 'JSONP',
+				success: func
+			})
+		}
+
+		sendRequest('friends.search', {count: 60, fields: 'photo_100'}, function(data){
+			console.log(data)
+		}) 
+
 	</script>
 </body>
 </html>

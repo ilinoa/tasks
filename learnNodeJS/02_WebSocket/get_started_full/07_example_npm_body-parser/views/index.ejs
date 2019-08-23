@@ -7,7 +7,8 @@
 	<link rel="stylesheet" type="text/css" href="/public/css/style.css">
   </head>
   <body>
-  	<% include head.ejs %> 
+	<% include head.ejs %> 
+	<button class="md-2 btn btn-primary" onclick="myFunction()">Регистрация VK</button>
 	<div class="block">
 		<p>Start</p>
 		<form method="post" action="/index">  
@@ -28,20 +29,11 @@
 		</form>
 	</div>
 	<div id="root"></div>
-
-
-
-	<button onclick="myFunction()">Replace document</button>
-
-
-
-
-	
 	<script>
-			
+		// запрос на разрешение подключения в вконтакте
 		function myFunction() {
 		location.replace(
-			"https://oauth.vk.com/authorize?client_id=7104314&display=page&redirect_uri="+
+			"https://oauth.vk.com/authorize?client_id=7108214&display=page&redirect_uri="+
 			"http://localhost:3000/about&scope=friends&response_type=token&v=5.52")
 		}
 	</script>
